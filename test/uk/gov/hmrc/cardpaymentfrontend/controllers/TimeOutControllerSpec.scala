@@ -45,12 +45,11 @@ class TimeOutControllerSpec extends ItSpec {
     }
 
     "showForceDeleteAnswersPage should return OK with ForceDeleteAnswersPage and clear session" in {
-      PayApiStub.stubForFindBySessionId2xx(TestJourneys.PfSa.journeyBeforeBeginWebPayment)
       val result = systemUnderTest.showForceDeleteAnswersLoggedOutPage(fakeGetRequest)
       val document = Jsoup.parse(contentAsString(result))
       println(document)
       document.select(".govuk-button").text() shouldBe "Start again"
-      document.title() shouldBe "For your security, we deleted your answers - Pay your Self Assessment - GOV.UK"
+      document.title() shouldBe "For your security, we deleted your answers - Pay your tax - GOV.UK"
       status(result) shouldBe OK
       session(result).data shouldBe empty
     }

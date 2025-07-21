@@ -205,14 +205,14 @@ class EmailAddressControllerSpec extends ItSpec {
         val result = systemUnderTest.submit(fakePostRequest(validFormData))
         status(result) shouldBe Status.SEE_OTHER
         session(result).data.get("TestJourneyId-44f9-ad7f-01e1d3d8f151").map(_.replaceAll("\\s", "")) shouldBe Some("""{"email":"blag@blah.com"}""")
-        redirectLocation(result) shouldBe Some("/pay-by-card/address")
+        redirectLocation(result) shouldBe Some("/address")
       }
 
       "should return 303 SEE_OTHER and redirect to /address when no email address to be submitted" in {
         val validFormData = ("email-address", "")
         val result = systemUnderTest.submit(fakePostRequest(validFormData))
         status(result) shouldBe Status.SEE_OTHER
-        redirectLocation(result) shouldBe Some("/pay-by-card/address")
+        redirectLocation(result) shouldBe Some("/address")
       }
 
       "should return a 400 BAD_REQUEST when an invalid email address is submitted" in {

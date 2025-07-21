@@ -110,7 +110,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -120,7 +120,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -195,7 +195,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -205,7 +205,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -280,7 +280,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -290,7 +290,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -430,7 +430,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -440,7 +440,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for personal debit card" in {
@@ -495,7 +495,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -505,7 +505,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -580,7 +580,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -590,7 +590,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -665,7 +665,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -675,7 +675,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for personal debit card" in {
@@ -771,7 +771,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -781,7 +781,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for personal debit card" in {
@@ -857,7 +857,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -867,7 +867,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for personal debit card" in {
@@ -943,7 +943,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -953,7 +953,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for personal debit card" in {
@@ -1008,7 +1008,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1018,7 +1018,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1093,7 +1093,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1103,7 +1103,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1178,7 +1178,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1188,7 +1188,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1273,7 +1273,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1283,7 +1283,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1358,7 +1358,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1368,7 +1368,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1443,7 +1443,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1453,7 +1453,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1528,7 +1528,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1538,7 +1538,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for one off direct debit" in {
@@ -1613,7 +1613,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1623,7 +1623,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
       }
 
@@ -1660,7 +1660,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "bank account"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
 
         "render an option for open banking in welsh" in {
@@ -1670,7 +1670,7 @@ class FeesControllerSpec extends ItSpec {
           val listOfMethods = document.select("#payment-type-list").select("li")
           val openBankingBullet = listOfMethods.select("#open-banking-link")
           openBankingBullet.text() shouldBe "cyfrif banc"
-          openBankingBullet.attr("href") shouldBe "/pay-by-card/start-open-banking"
+          openBankingBullet.attr("href") shouldBe "/start-open-banking"
         }
       }
 
@@ -1681,7 +1681,7 @@ class FeesControllerSpec extends ItSpec {
         val fakeRequest: FakeRequest[AnyContentAsEmpty.type] = FakeRequest("POST", "/card-fees").withSessionId()
         PayApiStub.stubForFindBySessionId2xx(TestJourneys.PfSa.journeyBeforeBeginWebPayment)
         val result = systemUnderTest.submit(fakeRequest)
-        redirectLocation(result) shouldBe Some("/pay-by-card/email-address")
+        redirectLocation(result) shouldBe Some("/email-address")
       }
     }
 
@@ -1703,7 +1703,7 @@ class FeesControllerSpec extends ItSpec {
     "linksAvailableOnFeesPage" - {
 
       val expectedOpenBankingLink = Link(
-        href       = Call("GET", "/pay-by-card/start-open-banking"),
+        href       = Call("GET", "/start-open-banking"),
         linkId     = "open-banking-link",
         messageKey = "card-fees.para2.open-banking"
       )

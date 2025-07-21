@@ -69,6 +69,7 @@ class PaymentStatusControllerSpec extends ItSpec {
       }
 
       "should not render the iframe page with a language toggle" in {
+        PayApiStub.stubForFindBySessionId2xx(TestJourneys.PfSa.journeyAfterBeginWebPayment)
         val result = systemUnderTest.showIframe(RedirectUrl("http://localhost:8080"))(fakeRequest)
         val document = Jsoup.parse(contentAsString(result))
         document.select(".hmrc-language-select__list-item").isEmpty shouldBe true
@@ -82,7 +83,7 @@ class PaymentStatusControllerSpec extends ItSpec {
         status(result) shouldBe Status.OK
         val document = Jsoup.parse(contentAsString(result))
         val anchorElement = document.select("#returnControlLink")
-        anchorElement.attr("href") shouldBe "/pay-by-card/payment-status"
+        anchorElement.attr("href") shouldBe "/payment-status"
         anchorElement.attr("target") shouldBe "_parent"
       }
 
@@ -104,7 +105,7 @@ class PaymentStatusControllerSpec extends ItSpec {
         CardPaymentStub.AuthAndCapture.stubForAuthAndCapture2xx("Some-transaction-ref", testCardPaymentResult)
         val result = systemUnderTest.paymentStatus()(fakeRequest)
         status(result) shouldBe 303
-        redirectLocation(result) shouldBe Some("/pay-by-card/payment-complete")
+        redirectLocation(result) shouldBe Some("/payment-complete")
       }
 
       "should return a redirect to payment failed page when Failed CardPaymentResult is returned from backend after AuthAndCapture" in {
@@ -115,7 +116,7 @@ class PaymentStatusControllerSpec extends ItSpec {
         CardPaymentStub.AuthAndCapture.stubForAuthAndCapture2xx("Some-transaction-ref", testCardPaymentResult)
         val result = systemUnderTest.paymentStatus()(fakeRequest)
         status(result) shouldBe 303
-        redirectLocation(result) shouldBe Some("/pay-by-card/payment-failed")
+        redirectLocation(result) shouldBe Some("/payment-failed")
       }
 
       "should return a redirect to payment cancelled page when Cancelled CardPaymentResult is returned from backend after AuthAndCapture" in {
@@ -126,7 +127,7 @@ class PaymentStatusControllerSpec extends ItSpec {
         CardPaymentStub.AuthAndCapture.stubForAuthAndCapture2xx("Some-transaction-ref", testCardPaymentResult)
         val result = systemUnderTest.paymentStatus()(fakeRequest)
         status(result) shouldBe 303
-        redirectLocation(result) shouldBe Some("/pay-by-card/payment-cancelled")
+        redirectLocation(result) shouldBe Some("/payment-cancelled")
       }
 
       "should throw an exception/error when there's no transaction reference in the order, shouldn't be possible, i.e. order is None, even though we've initiated a payment, and not call backend to auth and settle" in {

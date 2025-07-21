@@ -18,7 +18,6 @@
 @import uk.gov.hmrc.cardpaymentfrontend.views.html.Layout
 @import uk.gov.hmrc.govukfrontend.views.Aliases.{Button, Text}
 @import uk.gov.hmrc.govukfrontend.views.html.components.GovukButton
-@import uk.gov.hmrc.cardpaymentfrontend.actions.JourneyRequest
 
 @this(
         layout: Layout,
@@ -26,25 +25,32 @@
 )
 
 @(
-        statusMessageKey: String,
+        loggedIn: Boolean,
         redirectLink: Option[Url]
-)(implicit journeyRequest: JourneyRequest[_], messages: Messages)
+)(implicit request: Request[_], messages: Messages)
 
-@heading = @{messages(s"force-delete-answers.heading.${statusMessageKey}")}
+@statusMessageHeading = @{
+    if (loggedIn) messages("force-delete-answers.heading.logged-in")
+    else messages("force-delete-answers.heading.logged-out")
+}
 
-@layout(pageTitle = Some(heading), origin = Some(journeyRequest.journey.origin), showTimeoutDialogue = false) {
+@buttonMessage = @{
+    if (loggedIn) messages("force-delete-answers.button.logged-in")
+    else messages("force-delete-answers.button.logged-out")
+}
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">@heading</h1>
+@layout(pageTitle = Some(statusMessageHeading), origin = None, showTimeoutDialogue = false) {
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-6">@statusMessageHeading</h1>
     @redirectLink.fold {
         <p class="govuk-body">
-            @messages(s"force-delete-answers.heading.${statusMessageKey}")
-            <a class="govuk-link" href="https://www.gov.uk/topic/dealing-with-hmrc/paying-hmrc"> @messages(s"force-delete-answers.heading.${statusMessageKey}")</a>.
+            <a class="govuk-link" href="https://www.gov.uk/topic/dealing-with-hmrc/paying-hmrc"> @{buttonMessage}</a>.
         </p>
-    } {link =>
+    } { link =>
         @govukButton(Button(
             id = Some("submit"),
-            content = Text(messages(s"force-delete-answers.button.${statusMessageKey}")),
-            href = Some({link.value})
+            content = Text(buttonMessage),
+            href = Some(link.value)
         ))
     }
 

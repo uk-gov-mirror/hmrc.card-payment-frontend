@@ -139,7 +139,7 @@ class PaymentCancelledControllerSpec extends ItSpec {
         val result = systemUnderTest.renderPage(fakeGetRequest)
         val document = Jsoup.parse(contentAsString(result))
         val button = document.select("#enter-details-again-button")
-        button.attr("href") shouldBe "/pay-by-card/email-address"
+        button.attr("href") shouldBe "/email-address"
       }
 
       "should render the page with a link to pay another way" in {
@@ -187,7 +187,7 @@ class PaymentCancelledControllerSpec extends ItSpec {
         val result = systemUnderTest.renderPage(fakeGetRequestInWelsh)
         val document = Jsoup.parse(contentAsString(result))
         val link = document.select("#exit-wthout-paying-link")
-        link.attr("href") shouldBe "/pay-by-card/start-payment-survey"
+        link.attr("href") shouldBe "/start-payment-survey"
       }
 
       "the exit without paying link should link to returnUrl if returnUrl is set for journey" in {

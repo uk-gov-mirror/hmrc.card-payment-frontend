@@ -45,7 +45,7 @@ class PaymentStatusActionRefiners @Inject() (
   }
 
   def iframePageActionRefiner: ActionRefiner[JourneyRequest, JourneyRequest] = new ActionRefiner[JourneyRequest, JourneyRequest] {
-    //we don't want to be calling payment status again if we know that the journey is already in finished state
+    //we don't want to be calling show iframe again if we know that the journey is already in finished state
     override protected[actions] def refine[A](journeyRequest: JourneyRequest[A]): Future[Either[Result, JourneyRequest[A]]] = {
       journeyRequest.journey.status match {
         case PaymentStatuses.Created | PaymentStatuses.Sent          => Future.successful(Right(journeyRequest))

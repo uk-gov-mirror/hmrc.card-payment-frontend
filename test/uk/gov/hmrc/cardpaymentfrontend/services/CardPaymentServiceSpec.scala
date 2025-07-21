@@ -64,7 +64,7 @@ class CardPaymentServiceSpec extends ItSpec {
       implicit val journeyRequest: JourneyRequest[_] = fakeJourneyRequest(journey   = testJourneyBeforeBeginWebPayment, withEmail = true)
 
       val cardPaymentInitiatePaymentRequest = CardPaymentInitiatePaymentRequest(
-        redirectUrl         = "http://localhost:10155/pay-by-card/return-to-hmrc",
+        redirectUrl         = "http://localhost:10155/return-to-hmrc",
         clientId            = "SAEE",
         purchaseDescription = "1234567895K",
         purchaseAmount      = AmountInPence(1234),

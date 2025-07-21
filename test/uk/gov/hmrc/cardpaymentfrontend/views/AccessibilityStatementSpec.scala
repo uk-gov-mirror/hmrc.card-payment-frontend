@@ -32,14 +32,14 @@ class AccessibilityStatementSpec extends ItSpec {
 
   "Accessibility Statement Link is correct" in {
 
-    val fakeRequest = FakeRequest("GET", "/pay-by-card/card-fees").withSessionId()
+    val fakeRequest = FakeRequest("GET", "/card-fees").withSessionId()
 
     PayApiStub.stubForFindBySessionId2xx(TestJourneys.PfSa.journeyBeforeBeginWebPayment)
     val result = feesController.renderPage(fakeRequest)
     val document = Jsoup.parse(contentAsString(result))
     println(document)
     val accessibilityItem = document.select("ul.govuk-footer__inline-list li.govuk-footer__inline-list-item a").asScala.find(_.text().trim == "Accessibility statement")
-    accessibilityItem.flatMap(item => Option(item.attr("href"))) shouldBe Some("http://localhost:12346/accessibility-statement/pay?referrerUrl=%2Fpay-by-card%2Fcard-fees")
+    accessibilityItem.flatMap(item => Option(item.attr("href"))) shouldBe Some("http://localhost:12346/accessibility-statement/pay?referrerUrl=%2Fcard-fees")
   }
 
 }

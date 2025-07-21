@@ -156,7 +156,7 @@ class AddressControllerSpec extends ItSpec {
         )
         val result = systemUnderTest.submit(fakePostRequest(address: _*))
         status(result) shouldBe Status.SEE_OTHER
-        redirectLocation(result) shouldBe Some("/pay-by-card/check-your-details")
+        redirectLocation(result) shouldBe Some("/check-your-details")
       }
 
       "Should show the correct error Title content in English" in {

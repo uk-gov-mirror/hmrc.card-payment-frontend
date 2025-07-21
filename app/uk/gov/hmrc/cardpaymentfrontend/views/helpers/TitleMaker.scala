@@ -23,8 +23,8 @@ import play.api.i18n.Messages
 object TitleMaker {
 
   def journeyTitleMaker(h1Key: Option[String], origin: Option[Origin], maybeForm: Option[Form[_]] = None)(implicit messages: Messages): String = {
-    val originEntryName = origin.map(_.entryName)
-    makeTitle(h1Key.getOrElse(""), originEntryName.getOrElse(""), maybeForm.exists(_.hasErrors))
+    val originEntryName: Option[String] = origin.map(_.entryName)
+    makeTitle(h1Key.getOrElse(""), originEntryName.getOrElse("generic"), maybeForm.exists(_.hasErrors))
   }
 
   private def makeTitle(h1Key: String, origin: String, error: Boolean)(implicit messages: Messages): String = {
