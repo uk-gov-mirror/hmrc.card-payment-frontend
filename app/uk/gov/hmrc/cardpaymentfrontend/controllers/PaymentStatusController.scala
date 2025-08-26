@@ -28,7 +28,7 @@ import uk.gov.hmrc.cardpaymentfrontend.services.CardPaymentService
 import uk.gov.hmrc.cardpaymentfrontend.util.SafeEquals.EqualsOps
 import uk.gov.hmrc.cardpaymentfrontend.views.html.errors.TechnicalDifficultiesPage
 import uk.gov.hmrc.cardpaymentfrontend.views.html.iframe.{IframeContainerPage, RedirectToParentPage}
-import uk.gov.hmrc.http.{HttpResponse, SessionKeys}
+import uk.gov.hmrc.http.{HeaderNames, HttpResponse, SessionKeys}
 import uk.gov.hmrc.play.bootstrap.binders.RedirectUrl.idFunctor
 import uk.gov.hmrc.play.bootstrap.binders.RedirectUrlPolicy.Id
 import uk.gov.hmrc.play.bootstrap.binders.{AbsoluteWithHostnameFromAllowlist, RedirectUrl, RedirectUrlPolicy}
@@ -70,7 +70,7 @@ class PaymentStatusController @Inject() (
     val transactionRefFromJourney: Option[String] = journeyRequest.journey.order.map(_.transactionReference.value)
     val sessionIdForJourney: SessionId = journeyRequest.journey.sessionId.getOrElse(throw new RuntimeException("SessionId is missing from journey, this should never happen!"))
 
-    journeyRequest.request.headers.get(SessionKeys.sessionId) match {
+    journeyRequest.request.headers.get(HeaderNames.xSessionId) match {
       case Some(sid) =>
         if (sid =!= sessionIdForJourney.value)
           logger.warn("sessionId from request is different from sessionId in journey, has the cookie been nuked by the browser?")
