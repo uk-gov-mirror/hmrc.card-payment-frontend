@@ -69,6 +69,10 @@ class PaymentStatusController @Inject() (
     val transactionRefFromJourney: Option[String] = journeyRequest.journey.order.map(_.transactionReference.value)
     val sessionIdForJourney: SessionId = journeyRequest.journey.sessionId.getOrElse(throw new RuntimeException("SessionId is missing from journey, this should never happen!"))
 
+    if (journeyRequest.request.headers.get(SessionKeys.sessionId).exists(_ != sessionIdForJourney.value)) {
+      logger.warn("sessionId from request is different from sessionId in journey, has the cookie been nuked by the browser?")
+    }
+
     val maybeCardPaymentResultF = for {
       authAndCaptureResult <- cardPaymentService.finishPayment(
         transactionRefFromJourney.getOrElse(throw new RuntimeException("Could not find transaction ref, therefore we can't auth and settle.")),

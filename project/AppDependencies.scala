@@ -23,7 +23,7 @@ object AppDependencies {
 
   val test: Seq[ModuleID] = Seq[ModuleID](
     "uk.gov.hmrc" %% "bootstrap-test-play-30" % bootstrapVersion,
-    "org.jsoup"   %  "jsoup"                  % "1.21.1"
+    "org.jsoup"   %  "jsoup"                  % "1.21.2"
   ).map( _ % Test )
 
   val it: Seq[ModuleID] = Seq.empty[ModuleID]
