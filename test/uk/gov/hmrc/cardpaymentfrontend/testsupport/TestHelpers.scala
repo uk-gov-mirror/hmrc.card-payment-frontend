@@ -125,7 +125,8 @@ object TestHelpers {
     `3psSa`,
     `3psVat`,
     PfPillar2,
-    Pillar2
+    Pillar2,
+    WcClass2Ni
   )
 
   def deriveTestDataFromOrigin[jsd <: JourneySpecificData](origin: Origin) = origin match {
@@ -220,6 +221,8 @@ object TestHelpers {
     case WcEpayeNi                => TestJourneys.WcEpayeNi
     case WcEpayeLateCis           => TestJourneys.WcEpayeLateCis
     case WcEpayeSeta              => TestJourneys.WcEpayeSeta
+    case WcClass2Ni               => throw new MatchError("Not implemented yet")
+
   }
 
 }

@@ -125,7 +125,7 @@ class ClientIdService @Inject() {
 
       case o @ (PfClass2Ni | PfInsurancePremium | Parcels | DdVat | DdSdil | PfSpiritDrinks | PfInheritanceTax | PfWineAndCider
         | PfBioFuels | PfAirPass | PfBeerDuty | PfLandfillTax | PfAggregatesLevy | PfClimateChangeLevy | PfImportedVehicles
-        | PfAted | PfPillar2 | Pillar2) => throw new MatchError(s"Trying to find a client id for an unsupported origin: ${o.entryName}")
+        | PfAted | PfPillar2 | Pillar2 | WcClass2Ni) => throw new MatchError(s"Trying to find a client id for an unsupported origin: ${o.entryName}")
 
     }
 

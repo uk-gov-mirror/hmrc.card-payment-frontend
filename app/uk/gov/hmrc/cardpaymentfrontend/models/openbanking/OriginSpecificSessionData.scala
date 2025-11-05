@@ -141,6 +141,7 @@ object OriginSpecificSessionData {
       case WcEpayeNi                => Json.format[WcEpayeNiSessionData].reads(json)
       case WcEpayeLateCis           => Json.format[WcEpayeLateCisSessionData].reads(json)
       case WcEpayeSeta              => Json.format[WcEpayeSetaSessionData].reads(json)
+      case WcClass2Ni               => Json.format[WcClass2NiSessionData].reads(json)
       case PfJobRetentionScheme     => Json.format[PfJobRetentionSchemeSessionData].reads(json)
       case JrsJobRetentionScheme    => Json.format[JrsJobRetentionSchemeSessionData].reads(json)
 
@@ -232,6 +233,7 @@ object OriginSpecificSessionData {
       case sessionData: WcEpayeNiSessionData             => Json.format[WcEpayeNiSessionData].writes(sessionData)
       case sessionData: WcEpayeLateCisSessionData        => Json.format[WcEpayeLateCisSessionData].writes(sessionData)
       case sessionData: WcEpayeSetaSessionData           => Json.format[WcEpayeSetaSessionData].writes(sessionData)
+      case sessionData: WcClass2NiSessionData            => Json.format[WcClass2NiSessionData].writes(sessionData)
       case sessionData: PfJobRetentionSchemeSessionData  => Json.format[PfJobRetentionSchemeSessionData].writes(sessionData)
       case sessionData: JrsJobRetentionSchemeSessionData => Json.format[JrsJobRetentionSchemeSessionData].writes(sessionData)
     }) + ("origin" -> Json.toJson(o.origin))
@@ -713,4 +715,9 @@ final case class PfJobRetentionSchemeSessionData(jrsRef: JrsRef, returnUrl: Opti
 final case class JrsJobRetentionSchemeSessionData(jrsRef: JrsRef, returnUrl: Option[Url] = None) extends OriginSpecificSessionData(JrsJobRetentionScheme) {
   def paymentReference: Reference = ReferenceMaker.makeJrsReference(jrsRef)
   def searchTag: SearchTag = SearchTag(jrsRef.canonicalizedValue)
+}
+
+final case class WcClass2NiSessionData(class2NiReference: Class2NiReference, returnUrl: Option[Url] = None) extends OriginSpecificSessionData(WcClass2Ni) {
+  def paymentReference: Reference = ReferenceMaker.makeClass2NiReference(class2NiReference)
+  def searchTag: SearchTag = SearchTag(class2NiReference.canonicalisedValue)
 }
