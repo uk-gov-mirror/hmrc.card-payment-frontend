@@ -46,7 +46,7 @@ class EmailServiceSpec extends ItSpec with TableDrivenPropertyChecks {
     val commission = Some("1.23")
 
     // needed for compiler. if you're adding a new extended origin, add the jsd to this type/list of types.
-    type JsdBounds = JsdPfEpayeNi with JsdAlcoholDuty with JsdPfPpt with JsdBtaEpayeBill with JsdPfSa with JsdPpt with JsdVcVatReturn with JsdPfEpayeP11d with JsdCapitalGainsTax with JsdBtaCt with JsdPfEpayeLateCis with JsdPfEpayeLpp with JsdPfCt with JsdBtaVat with JsdPfSdlt with JsdBtaEpayeInterest with JsdAmls with JsdBtaEpayeGeneral with JsdPfEpayeSeta with JsdPtaSa with JsdBtaClass1aNi with JsdVcVatOther with JsdPfAmls with JsdPfVat with JsdItSa with JsdBtaSa with JsdPfAlcoholDuty with JsdBtaEpayePenalty with JsdEconomicCrimeLevy with JsdPfEconomicCrimeLevy with JsdWcSa with JsdWcCt with JsdWcVat with JsdVatC2c with JsdPfVatC2c with JsdWcSimpleAssessment with JsdWcXref with JsdWcEpayeLpp with JsdWcEpayeNi with JsdWcEpayeLateCis with JsdWcClass1aNi with JsdPfChildBenefitRepayments with JsdBtaSdil with JsdPfSdil with JsdPtaP800 with JsdPfP800 with JsdPtaSimpleAssessment with JsdPfSimpleAssessment with JsdPfJobRetentionScheme with JsdJrsJobRetentionScheme with JsdWcEpayeSeta with JsdNiEuVatOss with JsdPfNiEuVatOss with JsdNiEuVatIoss with JsdPfNiEuVatIoss with JsdPfCds with JsdAppSa with JsdAppSimpleAssessment with JsdMib with JsdBcPngr with JsdPfTpes with JsdPfMgd with JsdPfGbPbRgDuty with JsdPfTrust with JsdPfOther with JsdPfPsAdmin
+    type JsdBounds = JsdPfEpayeNi with JsdAlcoholDuty with JsdPfPpt with JsdBtaEpayeBill with JsdPfSa with JsdPpt with JsdVcVatReturn with JsdPfEpayeP11d with JsdCapitalGainsTax with JsdBtaCt with JsdPfEpayeLateCis with JsdPfEpayeLpp with JsdPfCt with JsdBtaVat with JsdPfSdlt with JsdBtaEpayeInterest with JsdAmls with JsdBtaEpayeGeneral with JsdPfEpayeSeta with JsdPtaSa with JsdBtaClass1aNi with JsdVcVatOther with JsdPfAmls with JsdPfVat with JsdItSa with JsdBtaSa with JsdPfAlcoholDuty with JsdBtaEpayePenalty with JsdEconomicCrimeLevy with JsdPfEconomicCrimeLevy with JsdWcSa with JsdWcCt with JsdWcVat with JsdVatC2c with JsdPfVatC2c with JsdWcSimpleAssessment with JsdWcXref with JsdWcEpayeLpp with JsdWcEpayeNi with JsdWcEpayeLateCis with JsdWcClass1aNi with JsdPfChildBenefitRepayments with JsdBtaSdil with JsdPfSdil with JsdPtaP800 with JsdPfP800 with JsdPtaSimpleAssessment with JsdPfSimpleAssessment with JsdPfJobRetentionScheme with JsdJrsJobRetentionScheme with JsdWcEpayeSeta with JsdNiEuVatOss with JsdPfNiEuVatOss with JsdNiEuVatIoss with JsdPfNiEuVatIoss with JsdPfCds with JsdAppSa with JsdAppSimpleAssessment with JsdMib with JsdBcPngr with JsdPfTpes with JsdPfMgd with JsdPfGbPbRgDuty with JsdPfTrust with JsdPfOther with JsdPfPsAdmin with JsdWcChildBenefitRepayments
 
     val scenarios: TableFor6[JourneyStatuses[_ >: JsdBounds <: JourneySpecificData], String, String, Option[String], Option[String], String] = Table(
       ("Journey", "Tax Type", "Tax Reference", "Commission", "Total Paid", "lang"),
@@ -264,6 +264,11 @@ class EmailServiceSpec extends ItSpec with TableDrivenPropertyChecks {
       (PfChildBenefitRepayments, "Repay Child Benefit overpayments", "ending with 89123", commission, Some("13.57"), "en"),
       (PfChildBenefitRepayments, "Ad-dalu gordaliadau Budd-dal Plant", "yn gorffen gyda 89123", None, None, "cy"),
       (PfChildBenefitRepayments, "Ad-dalu gordaliadau Budd-dal Plant", "yn gorffen gyda 89123", commission, Some("13.57"), "cy"),
+
+      (WcChildBenefitRepayments, "Repay Child Benefit overpayments", "ending with 89123", None, None, "en"),
+      (WcChildBenefitRepayments, "Repay Child Benefit overpayments", "ending with 89123", commission, Some("13.57"), "en"),
+      (WcChildBenefitRepayments, "Ad-dalu gordaliadau Budd-dal Plant", "yn gorffen gyda 89123", None, None, "cy"),
+      (WcChildBenefitRepayments, "Ad-dalu gordaliadau Budd-dal Plant", "yn gorffen gyda 89123", commission, Some("13.57"), "cy"),
 
       (BtaSdil, "Soft Drinks Industry Levy", "ending with 90123", None, None, "en"),
       (BtaSdil, "Soft Drinks Industry Levy", "ending with 90123", commission, Some("13.57"), "en"),

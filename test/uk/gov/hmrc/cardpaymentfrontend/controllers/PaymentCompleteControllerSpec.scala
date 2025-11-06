@@ -518,7 +518,7 @@ class PaymentCompleteControllerSpec extends ItSpec {
         }
 
       "should have a test for all origins below this one" in {
-        TestHelpers.implementedOrigins.size shouldBe 66 withClue "** This dummy test is here to remind you to update the tests below. Bump up the expected number when an origin is added to implemented origins **"
+        TestHelpers.implementedOrigins.size shouldBe 67 withClue "** This dummy test is here to remind you to update the tests below. Bump up the expected number when an origin is added to implemented origins **"
       }
 
       TestHelpers.implementedOrigins
@@ -1969,7 +1969,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.PfChildBenefitRepayments => TestScenarioInfo(
+    case PfChildBenefitRepayments => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PfChildBenefitRepayments.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PfChildBenefitRepayments.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2000,7 +2000,38 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.BtaSdil => TestScenarioInfo(
+    case WcChildBenefitRepayments => TestScenarioInfo(
+      debitCardJourney                = TestJourneys.WcChildBenefitRepayments.journeyAfterSucceedDebitWebPayment,
+      creditCardJourney               = TestJourneys.WcChildBenefitRepayments.journeyAfterSucceedCreditWebPayment,
+      englishSummaryRowsDebitCard     = List(
+        "Tax" -> "Repay Child Benefit overpayments",
+        "Date" -> "2 November 2027",
+        "Amount" -> "£12.34"
+      ),
+      maybeWelshSummaryRowsDebitCard  = Some(List(
+        "Treth" -> "Ad-dalu gordaliadau Budd-dal Plant",
+        "Dyddiad" -> "2 Tachwedd 2027",
+        "Swm" -> "£12.34"
+      )),
+      englishSummaryRowsCreditCard    = List(
+        "Tax" -> "Repay Child Benefit overpayments",
+        "Date" -> "2 November 2027",
+        "Amount paid to HMRC" -> "£12.34",
+        "Card fee (9.97%), non-refundable" -> "£1.23",
+        "Total paid" -> "£13.57"
+      ),
+      maybeWelshSummaryRowsCreditCard = Some(List(
+        "Treth" -> "Ad-dalu gordaliadau Budd-dal Plant",
+        "Dyddiad" -> "2 Tachwedd 2027",
+        "Swm a dalwyd i CThEM" -> "£12.34",
+        "Ffi cerdyn (9.97%), ni ellir ei ad-dalu" -> "£1.23",
+        "Cyfanswm a dalwyd" -> "£13.57"
+      )),
+      hasWelshTest                    = true,
+      hasAReturnUrl                   = false
+    )
+
+    case BtaSdil => TestScenarioInfo(
       debitCardJourney                = TestJourneys.BtaSdil.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.BtaSdil.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2031,7 +2062,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.PfSdil => TestScenarioInfo(
+    case PfSdil => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PfSdil.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PfSdil.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2062,7 +2093,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.PtaP800 => TestScenarioInfo(
+    case PtaP800 => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PtaP800.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PtaP800.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2097,7 +2128,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.PfP800 => TestScenarioInfo(
+    case PfP800 => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PfP800.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PfP800.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2132,7 +2163,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.PtaSimpleAssessment => TestScenarioInfo(
+    case PtaSimpleAssessment => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PtaSimpleAssessment.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PtaSimpleAssessment.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2171,7 +2202,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = true
     )
 
-    case Origins.PfSimpleAssessment => TestScenarioInfo(
+    case PfSimpleAssessment => TestScenarioInfo(
       debitCardJourney                = TestJourneys.PfSimpleAssessment.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.PfSimpleAssessment.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(
@@ -2431,7 +2462,7 @@ object PaymentCompleteControllerSpec {
       hasAReturnUrl                   = false
     )
 
-    case Origins.Mib => TestScenarioInfo(
+    case Mib => TestScenarioInfo(
       debitCardJourney                = TestJourneys.Mib.journeyAfterSucceedDebitWebPayment,
       creditCardJourney               = TestJourneys.Mib.journeyAfterSucceedCreditWebPayment,
       englishSummaryRowsDebitCard     = List(

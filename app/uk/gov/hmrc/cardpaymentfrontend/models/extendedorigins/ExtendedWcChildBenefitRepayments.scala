@@ -16,50 +16,38 @@
 
 package uk.gov.hmrc.cardpaymentfrontend.models.extendedorigins
 
-import payapi.cardpaymentjourney.model.journey.{JourneySpecificData, JsdWcEpayeLateCis}
+import payapi.cardpaymentjourney.model.journey.{JourneySpecificData, JsdWcChildBenefitRepayments}
 import play.api.mvc.AnyContent
 import uk.gov.hmrc.cardpaymentfrontend.actions.JourneyRequest
 import uk.gov.hmrc.cardpaymentfrontend.models.PaymentMethod.{Bacs, Card, OpenBanking}
-import uk.gov.hmrc.cardpaymentfrontend.models._
-import uk.gov.hmrc.cardpaymentfrontend.models.openbanking.{OriginSpecificSessionData, WcEpayeLateCisSessionData}
+import uk.gov.hmrc.cardpaymentfrontend.models.{CheckYourAnswersRow, PaymentMethod}
+import uk.gov.hmrc.cardpaymentfrontend.models.openbanking.{OriginSpecificSessionData, WcChildBenefitRepaymentsSessionData}
 
-object ExtendedWcEpayeLateCis extends ExtendedOrigin {
-  override def serviceNameMessageKey: String = "service-name.WcEpayeLateCis"
+object ExtendedWcChildBenefitRepayments extends ExtendedOrigin {
 
-  override def taxNameMessageKey: String = "payment-complete.tax-name.WcEpayeLateCis"
-
-  override def cardFeesPagePaymentMethods: Set[PaymentMethod] = Set(OpenBanking)
-
+  override def serviceNameMessageKey: String = "service-name.WcChildBenefitRepayments"
+  override def taxNameMessageKey: String = "payment-complete.tax-name.WcChildBenefitRepayments"
+  override def cardFeesPagePaymentMethods: Set[PaymentMethod] = Set[PaymentMethod](OpenBanking)
   override def paymentMethods(): Set[PaymentMethod] = Set(Card, OpenBanking, Bacs)
 
   override def checkYourAnswersReferenceRow(journeyRequest: JourneyRequest[AnyContent])
-    (payFrontendBaseUrl: String): Option[CheckYourAnswersRow] =
+    (payFrontendBaseUrl: String): Option[CheckYourAnswersRow] = {
     Some(CheckYourAnswersRow(
-      titleMessageKey = "check-your-details.WcEpayeLateCis.reference",
+      titleMessageKey = "check-your-details.PfChildBenefitRepayments.reference",
       value           = Seq(journeyRequest.journey.referenceValue),
       changeLink      = None
     ))
-
-  override def checkYourAnswersAmountSummaryRow(journeyRequest: JourneyRequest[AnyContent])(payFrontendBaseUrl: String): Option[CheckYourAnswersRow] = Some(CheckYourAnswersRow(
-    titleMessageKey = "check-your-details.total-to-pay",
-    value           = Seq(amount(journeyRequest)),
-    changeLink      = None
-  ))
-
-  override def openBankingOriginSpecificSessionData: JourneySpecificData => Option[OriginSpecificSessionData] = {
-    case j: JsdWcEpayeLateCis => Some(WcEpayeLateCisSessionData(j.chargeReference))
-    case _                    => throw new RuntimeException("Incorrect origin found")
   }
 
-  override def emailTaxTypeMessageKey: String = "email.tax-name.WcEpayeLateCis"
+  override def openBankingOriginSpecificSessionData: JourneySpecificData => Option[OriginSpecificSessionData] = {
+    case j: JsdWcChildBenefitRepayments => Some(WcChildBenefitRepaymentsSessionData(j.yReference))
+    case _                              => throw new RuntimeException("Incorrect origin found")
+  }
 
-  override def surveyAuditName: String = "cis-late-filing-penalty"
-
+  override def emailTaxTypeMessageKey: String = "email.tax-name.WcChildBenefitRepayments"
+  override def surveyAuditName: String = "child-benefit-repayments"
   override def surveyReturnHref: String = "https://www.gov.uk/government/organisations/hm-revenue-customs"
-
   override def surveyReturnMessageKey: String = "payments-survey.other.return-message"
-
   override def surveyIsWelshSupported: Boolean = true
-
   override def surveyBannerTitle: String = serviceNameMessageKey
 }
