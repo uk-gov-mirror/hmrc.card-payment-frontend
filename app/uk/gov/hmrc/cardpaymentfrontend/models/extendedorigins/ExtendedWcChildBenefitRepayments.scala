@@ -33,7 +33,7 @@ object ExtendedWcChildBenefitRepayments extends ExtendedOrigin {
   override def checkYourAnswersReferenceRow(journeyRequest: JourneyRequest[AnyContent])
     (payFrontendBaseUrl: String): Option[CheckYourAnswersRow] = {
     Some(CheckYourAnswersRow(
-      titleMessageKey = "check-your-details.PfChildBenefitRepayments.reference",
+      titleMessageKey = "check-your-details.WcChildBenefitRepayments.reference",
       value           = Seq(journeyRequest.journey.referenceValue),
       changeLink      = None
     ))
